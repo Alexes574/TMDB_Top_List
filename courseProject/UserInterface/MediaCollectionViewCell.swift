@@ -17,7 +17,7 @@ class MediaCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-        func configure(movie: Movie){
+        func configureMovie(movie: Movie){
             
             titleLable.text = movie.title
             
@@ -26,6 +26,17 @@ class MediaCollectionViewCell: UICollectionViewCell {
             let imageUrl = URL(string: urlString)
             posterImageView.sd_setImage(with: imageUrl, completed: nil)
         }
+    
+    func configureSerial(serial: Serial){
+        titleLable.text =  serial.original_name
+        
+        guard let imagePath = serial.poster_path else { return }
+        let urlString = "https://image.tmdb.org/t/p/w200" + imagePath
+        let imageUrl = URL(string: urlString)
+        posterImageView.sd_setImage(with: imageUrl, completed: nil)
+        
+        
+    }
 
 }
 

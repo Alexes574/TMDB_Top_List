@@ -4,6 +4,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sigmentController: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedController: UISegmentedControl!
     
     var data: Data?
     var moviesList: [Movie] = []
@@ -23,18 +24,51 @@ class ViewController: UIViewController {
         })
         
     }
+    @IBAction func choiceSegment(_ sender: UISegmentedControl) {
+        switch segmentedController.selectedSegmentIndex{
+        case 0:
+            let movies = networkManager.loadMoviesList(completionBlock: { [weak self] movies in
+                self?.moviesList = movies
+                self?.collectionView.reloadData()
+            })
+        case 1:
+            let serials = networkManager.loadSerialsList(completionBlock: { [weak self] serials in
+                self?.serialsList = serials
+                self?.collectionView.reloadData()
+            })
+        default:
+            print("Error!")
+            
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moviesList.count
+        switch segmentedController.selectedSegmentIndex{
+        case 0:
+            return moviesList.count
+        case 1:
+            return serialsList.count
+        default:
+            return moviesList.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaCollectionViewCell", for: indexPath) as? MediaCollectionViewCell{
-            cell.configure(movie: moviesList[indexPath.row])
-            return cell
             
+            switch segmentedController.selectedSegmentIndex{
+            case 0:
+                cell.configureMovie(movie: moviesList[indexPath.row])
+                return cell
+            case 1:
+                cell.configureSerial(serial: serialsList[indexPath.row])
+                return cell
+            default:
+                cell.configureMovie(movie: moviesList[indexPath.row])
+                return cell
+            }
         }
         return UICollectionViewCell()
     }
@@ -43,7 +77,7 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegate{}
 
 extension ViewController: UICollectionViewDelegateFlowLayout{
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let itemsPerRow: CGFloat = 2
