@@ -19,7 +19,8 @@
 		2E885D2027980CA50040E99A /* MovieServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E885D1E27980CA50040E99A /* MovieServerResponse.swift */; };
 		2E885D2327980E6D0040E99A /* Serial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E885D2127980E6D0040E99A /* Serial.swift */; };
 		2E885D2427980E6D0040E99A /* SerialServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E885D2227980E6D0040E99A /* SerialServerResponse.swift */; };
-		2E885D27279837260040E99A /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E885D26279837260040E99A /* MediaCollectionViewCell.swift */; };
+		2EE931C92799E7AB003A0374 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE931C72799E7AB003A0374 /* MediaCollectionViewCell.swift */; };
+		2EE931CA2799E7AB003A0374 /* MediaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE931C82799E7AB003A0374 /* MediaCollectionViewCell.xib */; };
 		930CDB4863F11187AACFC7DA /* Pods_courseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B670B0A60C9866B1DD23E7 /* Pods_courseProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +40,8 @@
 		2E885D1E27980CA50040E99A /* MovieServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieServerResponse.swift; sourceTree = "<group>"; };
 		2E885D2127980E6D0040E99A /* Serial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serial.swift; sourceTree = "<group>"; };
 		2E885D2227980E6D0040E99A /* SerialServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialServerResponse.swift; sourceTree = "<group>"; };
-		2E885D26279837260040E99A /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		2EE931C72799E7AB003A0374 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		2EE931C82799E7AB003A0374 /* MediaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaCollectionViewCell.xib; sourceTree = "<group>"; };
 		53C614EBB09909B506F58C98 /* Pods-courseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseProject.release.xcconfig"; path = "Target Support Files/Pods-courseProject/Pods-courseProject.release.xcconfig"; sourceTree = "<group>"; };
 		C4995CA0A3A96D1A163F3E65 /* Pods-courseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseProject.debug.xcconfig"; path = "Target Support Files/Pods-courseProject/Pods-courseProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +108,8 @@
 		2E885D25279836A70040E99A /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				2E885D26279837260040E99A /* MediaCollectionViewCell.swift */,
+				2EE931C72799E7AB003A0374 /* MediaCollectionViewCell.swift */,
+				2EE931C82799E7AB003A0374 /* MediaCollectionViewCell.xib */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3B7DC42790807100456EA6 /* LaunchScreen.storyboard in Resources */,
+				2EE931CA2799E7AB003A0374 /* MediaCollectionViewCell.xib in Resources */,
 				2E3B7DC12790807100456EA6 /* Assets.xcassets in Resources */,
 				2E885D192798031D0040E99A /* Podfile in Resources */,
 				2E3B7DBF2790806D00456EA6 /* Main.storyboard in Resources */,
@@ -245,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E885D1B279803710040E99A /* NetworkManager.swift in Sources */,
-				2E885D27279837260040E99A /* MediaCollectionViewCell.swift in Sources */,
+				2EE931C92799E7AB003A0374 /* MediaCollectionViewCell.swift in Sources */,
 				2E3B7DBC2790806D00456EA6 /* ViewController.swift in Sources */,
 				2E3B7DB82790806D00456EA6 /* AppDelegate.swift in Sources */,
 				2E885D2327980E6D0040E99A /* Serial.swift in Sources */,
