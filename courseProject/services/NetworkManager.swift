@@ -14,7 +14,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     func loadMoviesList(completionBlock: @escaping(([Movie])->())){
-
+        
         let weekTrendMoviesUrl = "https://api.themoviedb.org/3/trending/movie/week?api_key=cac5c02f253fd54711409de68de3e9fa"
         
         AF.request(weekTrendMoviesUrl).response { response in
@@ -37,12 +37,12 @@ class NetworkManager {
     
     func loadSerialsList(completionBlock: @escaping(([Serial])->())){
         let weekTrendSerilasUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=cac5c02f253fd54711409de68de3e9fa"
-
+        
         AF.request(weekTrendSerilasUrl).response { response in
             guard let response = response.data else {
                 return
             }
-
+            
             do {
                 let jsonDecoder = JSONDecoder()
                 let serialsResponseModel = try jsonDecoder.decode(SerialServerResponse.self, from: response)
@@ -53,4 +53,20 @@ class NetworkManager {
             }
         }
     }
+    
+//    func loadAllDayTrendings(completionBlock: @escaping(([Serial],[Movie]) ->())){
+//        let dayTrendingsUrl = "https://api.themoviedb.org/3/trending/all/day?api_key=cac5c02f253fd54711409de68de3e9fa"
+//        AF.request(dayTrendingsUrl).response { response in
+//            guard let response = response.data else{
+//                return
+//            }
+//
+//            do {
+//
+//            }catch {
+//                debugPrint(error)
+//            }
+//        }
+//    }
 }
+
