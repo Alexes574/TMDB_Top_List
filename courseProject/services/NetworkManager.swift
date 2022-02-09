@@ -15,7 +15,7 @@ class NetworkManager {
     
     func loadMoviesList(completionBlock: @escaping(([Movie])->())){
         
-        let weekTrendMoviesUrl = "https://api.themoviedb.org/3/trending/movie/week?api_key=cac5c02f253fd54711409de68de3e9fa"
+        let weekTrendMoviesUrl = Constants.network.TMDBPath + "trending/movie/week?api_key=" + Constants.network.apiKey
         
         AF.request(weekTrendMoviesUrl).response { response in
             
@@ -36,7 +36,7 @@ class NetworkManager {
     
     
     func loadSerialsList(completionBlock: @escaping(([Serial])->())){
-        let weekTrendSerilasUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=cac5c02f253fd54711409de68de3e9fa"
+        let weekTrendSerilasUrl = Constants.network.TMDBPath + "trending/tv/week?api_key=" + Constants.network.apiKey
         
         AF.request(weekTrendSerilasUrl).response { response in
             guard let response = response.data else {
@@ -53,6 +53,38 @@ class NetworkManager {
             }
         }
     }
+    
+    func loadMovieVideoKey(_ mediaId: String, completion: @escaping((String) -> ())) {
+        
+        let url = Constants.network.TMDBPath + "movie/\(mediaId)/videos?api_key=" + Constants.network.apiKey
+        
+        AF.request(url).responseJSON { response in
+
+            let decoder = JSONDecoder()
+
+            if let data = try? decoder.decode(MovieVideosResult.self, from: response.data!) {
+                let videoKey =  data.results?.first?.key ?? ""
+                completion(videoKey)
+            }
+        }
+    }
+    
+    func loadSerialVideoKey(_ mediaId: String, completion: @escaping((String) -> ())) {
+        
+        let url = Constants.network.TMDBPath + "tv/\(mediaId)/videos?api_key=" + Constants.network.apiKey
+        
+        AF.request(url).responseJSON { response in
+
+            let decoder = JSONDecoder()
+
+            if let data = try? decoder.decode(MovieVideosResult.self, from: response.data!) {
+                let videoKey =  data.results?.first?.key ?? ""
+                completion(videoKey)
+            }
+        }
+    }
+    
+    
     
 //    func loadAllDayTrendings(completionBlock: @escaping(([Serial],[Movie]) ->())){
 //        let dayTrendingsUrl = "https://api.themoviedb.org/3/trending/all/day?api_key=cac5c02f253fd54711409de68de3e9fa"

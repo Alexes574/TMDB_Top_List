@@ -13,31 +13,32 @@ class MediaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
+    var media: Media?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         posterImageView.layer.cornerRadius = 50
     }
-    func configureMovie(movie: Movie){
+    func configureMedia(media:Media?){
         
-        titleLable.text = movie.title
+        guard let title = media?.title else {return}
+        titleLable.text = title
         
-        guard let imagePath = movie.poster_path else { return }
-        let urlString = "https://image.tmdb.org/t/p/w200" + imagePath
+        guard let imagePath = media?.posterPath else { return }
+        let urlString = Constants.network.defaultImagePath + imagePath
         let imageUrl = URL(string: urlString)
         posterImageView.sd_setImage(with: imageUrl, completed: nil)
     }
     
-    func configureSerial(serial: Serial){
-        titleLable.text =  serial.original_name
+    func configureMediaRealm(media:MediaRealm?){
         
-        guard let imagePath = serial.poster_path else { return }
-        let urlString = "https://image.tmdb.org/t/p/w200" + imagePath
+        guard let title = media?.title else {return}
+        titleLable.text = title
+        
+        guard let imagePath = media?.posterPath else { return }
+        let urlString = Constants.network.defaultImagePath + imagePath
         let imageUrl = URL(string: urlString)
         posterImageView.sd_setImage(with: imageUrl, completed: nil)
-        
-        
     }
-    
 }
