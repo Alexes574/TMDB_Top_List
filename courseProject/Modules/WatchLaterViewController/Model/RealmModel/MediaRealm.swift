@@ -8,21 +8,22 @@
 import Foundation
 import RealmSwift
 
-class MovieRealm: Object {
-    @objc dynamic var release_date = ""
+class MediaRealm: Object {
+    @objc dynamic var releaseDate = ""
     @objc dynamic var adult : Bool = false
-    @objc dynamic var backdrop_path = ""
+    @objc dynamic var backdropPath = ""
     @objc dynamic var title = ""
-    @objc dynamic var original_language : String = ""
-    @objc dynamic var original_title = ""
-    @objc dynamic var poster_path = ""
-    @objc dynamic var vote_count : Int = 0
+    @objc dynamic var originalLanguage : String = ""
+    @objc dynamic var originalTitle = ""
+    @objc dynamic var posterPath = ""
+    @objc dynamic var voteCount : Int = 0
     @objc dynamic var id : Int = 0
-    @objc dynamic var vote_average : Double = 0.0
+    @objc dynamic var voteAverage : Double = 0.0
     @objc dynamic var video : Bool = false
     @objc dynamic var overview = ""
     @objc dynamic var popularity = 0.0
-    @objc dynamic var media_type = ""
+    @objc dynamic var mediaType = ""
+    
 
     override static func  primaryKey() -> String? {
         return "id"

@@ -62,7 +62,7 @@ class NetworkManager {
 
             let decoder = JSONDecoder()
 
-            if let data = try? decoder.decode(MovieVideosResult.self, from: response.data!) {
+            if let data = try? decoder.decode(VideoServerRespons.self, from: response.data!) {
                 let videoKey =  data.results?.first?.key ?? ""
                 completion(videoKey)
             }
@@ -77,9 +77,47 @@ class NetworkManager {
 
             let decoder = JSONDecoder()
 
-            if let data = try? decoder.decode(MovieVideosResult.self, from: response.data!) {
+            if let data = try? decoder.decode(VideoServerRespons.self, from: response.data!) {
                 let videoKey =  data.results?.first?.key ?? ""
                 completion(videoKey)
+            }
+        }
+    }
+    
+    func loadMovieGenresList(completionBlock: @escaping(([MediaGenres])->())){
+        let movieGenresListUrl = Constants.network.TMDBPath + "genre/movie/list?api_key=\(Constants.network.apiKey)&language=en-US"
+        
+        AF.request(movieGenresListUrl).response { response in
+            guard let response = response.data else {
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let movieGenresListModel = try jsonDecoder.decode(GenresServerRespons.self, from: response)
+                
+                completionBlock(movieGenresListModel.genres ?? [])
+            }catch {
+                debugPrint(error)
+            }
+        }
+    }
+    
+    func loadSerialGenresList(completionBlock: @escaping(([MediaGenres])->())){
+        let serialGenresListUrl = Constants.network.TMDBPath + "genre/tv/list?api_key=\(Constants.network.apiKey)&language=en-US"
+        
+        AF.request(serialGenresListUrl).response { response in
+            guard let response = response.data else {
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                let serialGenresListModel = try jsonDecoder.decode(GenresServerRespons.self, from: response)
+                
+                completionBlock(serialGenresListModel.genres ?? [])
+            }catch {
+                debugPrint(error)
             }
         }
     }
