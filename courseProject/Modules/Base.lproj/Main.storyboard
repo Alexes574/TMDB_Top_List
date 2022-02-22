@@ -134,7 +134,7 @@
         <!--Navigation Controller-->
         <scene sceneID="qiD-8c-FsJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="DWt-fz-fVC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DWt-fz-fVC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="d4C-5d-N3Y">
                         <imageReference key="image" image="tv.fill" catalog="system" symbolScale="large" renderingMode="hierarchical">
                             <hierarchicalColors>
@@ -152,6 +152,9 @@
                         <color key="backgroundColor" red="0.04620432109" green="0.13108679649999999" blue="0.22746175530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.48061776160000003" green="0.76125162840000005" blue="0.72548925880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.04620432109" green="0.13108679649999999" blue="0.22746175530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.48061776160000003" green="0.76125162840000005" blue="0.72548925880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ueY-Am-7Xi">
@@ -246,20 +249,15 @@
                                                 <color key="textColor" red="0.60041791200000005" green="0.7940907478" blue="0.65880620479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0C-xS-DvO">
-                                                <rect key="frame" x="320" y="29" width="50" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYw-bm-Dpi">
+                                                <rect key="frame" x="16" y="353" width="358" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Oe9-wM-bpB"/>
-                                                    <constraint firstAttribute="height" constant="50" id="Wpd-gV-Jb5"/>
+                                                    <constraint firstAttribute="height" constant="100" id="9UJ-KX-FAf"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.counterclockwise.icloud" catalog="system">
-                                                    <color key="baseForegroundColor" red="0.60041791200000005" green="0.7940907478" blue="0.65880620479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="saveToWatchLaterButtonPressed:" destination="Hnk-9L-omH" eventType="touchUpInside" id="Z8E-Fb-3Cv"/>
-                                                </connections>
-                                            </button>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzR-3U-mrR">
                                                 <rect key="frame" x="16" y="464" width="358" height="20"/>
                                                 <constraints>
@@ -285,30 +283,35 @@
                                                     <constraint firstAttribute="height" constant="350" id="gEy-r7-1qd"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYw-bm-Dpi">
-                                                <rect key="frame" x="16" y="353" width="358" height="100"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0C-xS-DvO">
+                                                <rect key="frame" x="318" y="14" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="9UJ-KX-FAf"/>
+                                                    <constraint firstAttribute="width" constant="50" id="Oe9-wM-bpB"/>
+                                                    <constraint firstAttribute="height" constant="50" id="Wpd-gV-Jb5"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="arrow.counterclockwise.icloud" catalog="system">
+                                                    <color key="baseForegroundColor" red="0.60041791200000005" green="0.7940907478" blue="0.65880620479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="saveToWatchLaterButtonPressed:" destination="Hnk-9L-omH" eventType="touchUpInside" id="Z8E-Fb-3Cv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.04620432109" green="0.13108679649999999" blue="0.22746175530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstItem="5iI-Cb-aw7" firstAttribute="top" secondItem="z0C-xS-DvO" secondAttribute="bottom" constant="14" id="1ck-zz-pVI"/>
+                                            <constraint firstItem="5iI-Cb-aw7" firstAttribute="top" secondItem="z0C-xS-DvO" secondAttribute="bottom" constant="29" id="Eyk-2F-UcM"/>
                                             <constraint firstItem="5iI-Cb-aw7" firstAttribute="leading" secondItem="UaX-6I-KwW" secondAttribute="leading" id="GFN-CN-F0x"/>
                                             <constraint firstItem="hzR-3U-mrR" firstAttribute="top" secondItem="CYw-bm-Dpi" secondAttribute="bottom" constant="11" id="HeO-cx-hoH"/>
                                             <constraint firstAttribute="trailing" secondItem="CYw-bm-Dpi" secondAttribute="trailing" constant="16" id="I00-ho-c3g"/>
                                             <constraint firstAttribute="trailing" secondItem="7wF-4k-HaG" secondAttribute="trailing" id="Ia4-VR-J2H"/>
                                             <constraint firstAttribute="trailing" secondItem="yKd-8O-Wue" secondAttribute="trailing" constant="16" id="JPR-i5-BXY"/>
+                                            <constraint firstItem="z0C-xS-DvO" firstAttribute="top" secondItem="UaX-6I-KwW" secondAttribute="top" constant="14" id="K5h-NJ-e0p"/>
                                             <constraint firstItem="CYw-bm-Dpi" firstAttribute="leading" secondItem="UaX-6I-KwW" secondAttribute="leading" constant="16" id="LtQ-Vd-CDu"/>
                                             <constraint firstItem="hzR-3U-mrR" firstAttribute="leading" secondItem="UaX-6I-KwW" secondAttribute="leading" constant="16" id="O6I-mc-5CS"/>
                                             <constraint firstItem="yKd-8O-Wue" firstAttribute="top" secondItem="hzR-3U-mrR" secondAttribute="bottom" constant="10" id="Pu5-zE-rpU"/>
                                             <constraint firstAttribute="trailing" secondItem="hzR-3U-mrR" secondAttribute="trailing" constant="16" id="Uoh-iN-A0k"/>
-                                            <constraint firstItem="z0C-xS-DvO" firstAttribute="top" secondItem="UaX-6I-KwW" secondAttribute="top" constant="29" id="Xni-VW-bfB"/>
-                                            <constraint firstAttribute="trailing" secondItem="z0C-xS-DvO" secondAttribute="trailing" constant="20" id="c8o-HK-05d"/>
+                                            <constraint firstAttribute="trailing" secondItem="z0C-xS-DvO" secondAttribute="trailing" constant="22" id="afA-Gc-hvy"/>
                                             <constraint firstItem="CYw-bm-Dpi" firstAttribute="top" secondItem="5iI-Cb-aw7" secondAttribute="bottom" constant="10" id="hHx-PD-eCj"/>
                                             <constraint firstItem="yKd-8O-Wue" firstAttribute="leading" secondItem="UaX-6I-KwW" secondAttribute="leading" constant="16" id="iec-hA-SXP"/>
                                             <constraint firstAttribute="height" constant="950" id="koo-CE-uOx"/>

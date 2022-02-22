@@ -75,5 +75,6 @@ class DetailsViewController: UIViewController {
     //    MARK: Actions
     @IBAction func saveToWatchLaterButtonPressed(_ sender: Any) {
         realmManager.saveMedia(media: media)
+        saveWatchLaterButton.setImage(UIImage(systemName: "checkmark.icloud.fill"), for: .normal)
     }
 }
